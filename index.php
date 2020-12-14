@@ -6,6 +6,56 @@
 
 // echo "My first programm!";
 
+$start = microtime(1);
+
+$a = $_REQUEST['one'];
+$b = $_REQUEST['two'];
+$c = $_REQUEST['three'];
+$d = $_REQUEST['five'];
+
+$array = [$a, $b, $c, $d];
+$minNumber = min($array);
+$maxNumber = max($array);
+
+foreach ($array as $key) {
+    $rezult+=$key;
+}
+
+$mediumNumber = $rezult / count($array);
+
+echo "Минимальное значение" . " " . $minNumber . "<br>";
+echo "Максимальное значение" . " " . $maxNumber . "<br>";
+echo "Средне-арифметическая скалярная величина" . " " . $mediumNumber . "<br>";
+
+$stop = microtime(1);
+
+$timeWorkScript = $stop - $start;
+
+echo "Время работы скрипта -" . " " . $timeWorkScript;
+
+// $start = microtime(1);
+
+// function deleteNeigteves(&$arr) {
+//     foreach($arr as $key=>$value) {
+//         if ($value < 0) {
+//             unset($arr[$key]);
+//         }
+//     }
+//     return $arr;
+// }
+
+// $array = [1,4,7,3,8,-9,-19,34,-21,45,8];
+
+// $itog = deleteNeigteves($array);
+
+// echo '<pre>';
+// print_r($itog);
+// echo '<pre>';
+
+// $stop = microtime(1);
+
+// $time = $stop-$start;
+// echo $time;
 
 
 // function cartTotalInfo($products)
