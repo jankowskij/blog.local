@@ -1,37 +1,181 @@
 <?php
 
-// Author Jankowski Wlad
 
+
+
+
+
+
+
+// class Student {
+
+//     public $name;
+//     private $curs;
+    
+//     public function __construct($name) {
+//         $this->name = $name;
+//         $this->curs = 1;
+//     }
+
+//     public function getCurs() {
+//         return $this->curs;
+//     }
+
+//     public function cursNextStep() {
+//         $this->curs++;
+//     }
+
+// }
+
+// $student = new Student('Paul');
+// echo $student->getCurs();
+// $student->cursNextStep();
+// echo $student->getCurs();
+
+
+
+
+
+
+
+// class Car {
+//     public $priceAuto;
+//     public $totalDoorAuto;
+//     public $colorAuto;
+//     public $fuel;
+//     public $distance;
+
+//     public function __construct($price, $totalDoorAuto, $fuel, $distance) {
+//         $this->priceAuto = $price;
+//         $this->totalDoorAuto = $totalDoorAuto;
+//         $this->fuel = $fuel;
+//         $this->distance = $distance;
+//     }
+
+//     public function fuelConsuption() {
+//         return $this->distance / 100 * $this->fuel;
+//     }
+// }
+
+// $bmw = new Car(10000, '5', 15, 550);
+// $vw = new Car(10000, '4', 8, 250);
+// $opel = new Car(23000, '5', 7, 500);
+// $mercedes = new Car(75000, '4', 18, 1200);
+
+// echo 'Стоимость БМВ' . ' ' . $bmw->priceAuto . '<br>' .
+//      'Количество дверей' . ' ' . $bmw->totalDoorAuto . '<br>' .
+//      'Расход топлива на' . ' ' . $bmw->distance . ' ' . 'км' . ' ' . $bmw->fuelConsuption() . ' ' . 'литра(ов)';
+
+
+
+
+// session_start();
+
+// if (!isset($_SESSION['counter'])) 
+//     $_SESSION['counter'] = 0;
+//     echo "Вы обновили страницу " . $_SESSION['counter']++ . " " . "раз";
+//     echo "<br><a href=".$_SERVER['PHP_SELF'].">обновить"; 
+
+
+
+// setcookie("counter", $counter);
+
+// $counter = 1;
+
+
+// if (isset($_COOKIE["counter"])) {
+    
+//     $counter = intval($_COOKIE["counter"]);
+//     $counter++;
+//     $str = "Вы посетили страницы сайта $counter раз(а)";
+    
+// } else {
+//     $str = 'Ваш первый визит';    
+// }
+
+// $name = "Dmitry Shepel";
+// $work = "System Engeeneering";
+// $counter = 0;
+// setcookie("name", $name, time()+360);
+// setcookie("work", $work, time()+360);
+// setcookie("counter", $counter, time()+99999);
+// echo "<pre>";
+// print_r($_COOKIE);
+// echo "<pre>";
+
+
+
+//  echo "Вы посетили страницу" . " " . $_COOKIE['counter'] . " " . "раз";
+
+
+
+
+
+// Author Jankowski Wlad
 /* Author Jankowski Wlad */
 
+// setcookie("myName",$_REQUEST['name'],time()+60);
+// setcookie("dataTime",date("F j, Y, g:i a"),time()+999999999);
+// if (isset($_COOKIE['myName']) and !empty($_COOKIE['myName'])) {
+    // echo "Здравствуйте," . ' ' . $_COOKIE['myName'] ."<br>";
+//     echo $_COOKIE["dataTime"];
+// }
+// else {
+//     echo "Cookie empty!";
+// }
+  
+
 // echo "My first programm!";
+// if (isset($_REQUEST['name']) and !empty($_REQUEST['name'])) {
+//     setcookie('name', $_REQUEST['name'], time() + 3600);
+//     $name = $_COOKIE['name'];
+//     echo "Здравствуйте, $name";
+//     var_dump($_COOKIE);
+// }
+// else {
+//     echo "Здравствуйте, гость!";
+// }
 
-$start = microtime(1);
 
-$a = $_REQUEST['one'];
-$b = $_REQUEST['two'];
-$c = $_REQUEST['three'];
-$d = $_REQUEST['five'];
+///////////////////////////////////
+// $nameYour = $_REQUEST['name'];
+// $dateStart = time();
+// setcookie('dateStart', $dateStart, time() + 36000);
+// setcookie('name', $nameYour, time() + 37000);
+// $name = $_COOKIE['name'];
+// $dateStart - $_COOKIE['dateStart'];
+// if (time() >= $dateStart + 36000) {
+//     echo "С возвращением, друг!";
+// } else {
+//     echo "Привет, $name";
+// }
+///////////////////////////////
+// $start = microtime(1);
 
-$array = [$a, $b, $c, $d];
-$minNumber = min($array);
-$maxNumber = max($array);
+// $a = $_REQUEST['one'];
+// $b = $_REQUEST['two'];
+// $c = $_REQUEST['three'];
+// $d = $_REQUEST['five'];
 
-foreach ($array as $key) {
-    $rezult+=$key;
-}
+// $array = [$a, $b, $c, $d];
+// $minNumber = min($array);
+// $maxNumber = max($array);
 
-$mediumNumber = $rezult / count($array);
+// foreach ($array as $key) {
+//     $rezult+=$key;
+// }
 
-echo "Минимальное значение" . " " . $minNumber . "<br>";
-echo "Максимальное значение" . " " . $maxNumber . "<br>";
-echo "Средне-арифметическая скалярная величина" . " " . $mediumNumber . "<br>";
+// $mediumNumber = $rezult / count($array);
 
-$stop = microtime(1);
+// echo "Минимальное значение" . " " . $minNumber . "<br>";
+// echo "Максимальное значение" . " " . $maxNumber . "<br>";
+// echo "Средне-арифметическая скалярная величина" . " " . $mediumNumber . "<br>";
 
-$timeWorkScript = $stop - $start;
+// $stop = microtime(1);
 
-echo "Время работы скрипта -" . " " . $timeWorkScript;
+// $timeWorkScript = $stop - $start;
+
+// echo "Время работы скрипта -" . " " . $timeWorkScript;
 
 // $start = microtime(1);
 
