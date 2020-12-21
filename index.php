@@ -2,6 +2,228 @@
 
 
 
+class Products
+{
+    private $name;
+    private $price;
+    private $quantity;
+
+    public function __construct($name, $price, $quantity) {
+        $this->name = $name;
+        $this->price = $price;
+        $this->quantity = $quantity;
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function getPrice() {
+     return $this->price;
+    }
+
+    public function getQuantity() {
+        return $this->quantity;
+    }
+
+    public function getCost() {
+        return $this->price * $this->quantity;
+    }
+
+}
+
+class Cart
+{
+    private $productList = [];
+
+    public function add($product) {
+        $this->productList[] = $product;
+        return $this;
+    }
+
+    public function getProductList() {
+        return $this->productList;
+    }
+
+}
+
+
+$cartProduct = new Cart;
+$cartProduct->add(new Products('Iphone 10', 1200, 13))
+            ->add(new Products('Samsung', 1100, 9))
+            ->add(new Products('Nokia', 750, 23));
+
+echo "<pre>";
+print_r($cartProduct->getProductList());
+echo "<pre>";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// class Base 
+// {
+//     public $arr = [];
+//     public $massive;
+
+//     public function __construct() {
+//     $this->massive = new Massive;
+//     }
+
+//     public function add($number) {
+//         $this->arr[] = $number;
+//         return $this;
+//     }
+
+//     public function arraySumm() {
+//         return $this
+//         ->massive
+//         ->massiveSumm($this->arr);
+//     }
+
+// }
+
+// class Massive
+// {   
+
+//     public function massiveSumm($arrays) {
+//         return array_sum($arrays);
+//     }
+// }
+
+// $users = new Base();
+// $users->add(1)->add(1)->add(1)->add(3);
+// echo $users->arraySumm();
+
+
+
+// class User 
+// {
+//     private $name;
+//     private $age;
+
+//     public function __construct($name, $age) {
+//         $this->name = $name;
+//         $this->age = $age;
+//     }
+
+//     public function getName() {
+//         return $this->name;
+//     }
+
+//     public function getAge() {
+//         return $this->age;
+//     }
+
+//     public function setName($name) {
+//         $this->name = $name;
+//     }
+
+//     public function setAge($age) {
+//         $this->age = $age;
+//     }
+
+// }
+
+// class Worker extends User 
+// {
+//     private $solary;
+
+//     public function __construct($name, $age, $solary) {
+//         parent:: __construct($name, $age);
+//         $this->solary = $solary;
+//     }
+
+//     public function getSolary() {
+//         return $this-solary;
+//     }
+
+//     public function setSolary($solary) {
+//         $this->solary = $solary;
+//     }
+// }
+
+// $worker = new Worker('Janek', 30, 2200);
+// echo $worker->getName();
+
+// $user = new User('John', 28);
+// echo $user->getName();
+
+
+
+
+
+
+
+
+
+
+
+
+// class Arr
+// {
+//     private $array = [];
+
+//     public function __construct($array) {
+//         $this->array = $array;
+//     }
+
+//     public function addArray($number) {
+//         $this->array[] = $number; 
+//         return $this;
+//     }
+
+//     public function getArray() {
+//         return $this->array;
+//     }
+
+//     public function getSummArray() {
+//         return array_sum($this->array);
+//     }
+// }
+
+//  echo (new Arr([1,2,3,4,5,6]))->addArray(7)->addArray(8)->addArray(9)->addArray(10)->getSummArray();
+
+
+
+
+
+
+
+// class Arr 
+// {
+//     private $arr = [];
+
+//     public function __construct($arr) {
+//         $this->arr = $arr;
+//     }
+
+//     public function getArr() {
+//         return $this->arr;
+//     }
+
+//     public function summArr() {
+//         return array_sum($this->arr);
+//     }
+// }
+
+// echo (new Arr([1,2,3]))->summArr() + (new Arr([1,2,3]))->summArr();
+
+// $arr = new Arr([1,2,3]);
+// echo "<pre>";
+// print_r($arr->getArr());
+// echo "<pre><br>";
+// echo $arr->summArr();
 
 
 
