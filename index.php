@@ -2,70 +2,86 @@
 
 
 
-class Products
-{
-    private $name;
-    private $price;
-    private $quantity;
-
-    public function __construct($name, $price, $quantity) {
-        $this->name = $name;
-        $this->price = $price;
-        $this->quantity = $quantity;
-    }
-
-    public function getName() {
-        return $this->name;
-    }
-
-    public function getPrice() {
-     return $this->price;
-    }
-
-    public function getQuantity() {
-        return $this->quantity;
-    }
-
-    public function getCost() {
-        return $this->price * $this->quantity;
-    }
-
-}
-
-class Cart
-{
-    private $productList = [];
-
-    public function add($product) {
-        $this->productList[] = $product;
-        return $this;
-    }
-
-    public function getProductList() {
-        return $this->productList;
-    }
-
-}
-
-
-$cartProduct = new Cart;
-$cartProduct->add(new Products('Iphone 10', 1200, 13))
-            ->add(new Products('Samsung', 1100, 9))
-            ->add(new Products('Nokia', 750, 23));
-
-echo "<pre>";
-print_r($cartProduct->getProductList());
-echo "<pre>";
 
 
 
 
 
+// class Products
+// {
+//     private $name;
+//     private $price;
+//     private $quantity;
+
+//     public function __construct($name, $price, $quantity) {
+//         $this->name = $name;
+//         $this->price = $price;
+//         $this->quantity = $quantity;
+//     }
+
+//     public function getName() {
+//         return $this->name;
+//     }
+
+//     public function getPrice() {
+//      return $this->price;
+//     }
+
+//     public function getQuantity() {
+//         return $this->quantity;
+//     }
+
+//     public function getCost() {
+//         return $this->getPrice() * $this->getQuantity();
+//     }
+
+// }
+
+// class Cart
+// {
+//     private $productList = [];
+
+//     public function add($product) {
+//         $this->productList[] = $product;
+//         return $this;
+//     }
+
+//     public function remove($product) {
+//         foreach ($this->productList as $key=>$productItem) {
+//             if ($productItem->getName() == $product) {
+//                 unset($this->productList[$key]);
+//             }
+//         }
+//     }
+
+//     public function getTotalCart() {
+//         $totalProduct = 0;
+//         foreach ($this->productList as $productItem) {
+//             $totalProduct += $productItem->getPrice();
+//         }
+//         return $totalProduct;
+//     }
+
+//     public function getProductList() {
+//         return $this->productList;
+//     }
 
 
 
+// }
 
+// $cartProduct = new Cart;
+// $cartProduct->add( new Products('Samsung', 1100, 15))
+//             ->add( new Products('Iphone 12', 800, 13))
+//             ->add( new Products('Iphone 10', 1200, 13));
 
+// foreach ($cartProduct->getProductList() as $cartItem) {
+//             echo "Название товара: " . $cartItem->getName() . '<br>' .
+//                  "Цена товара: " . $cartItem->getPrice() . '<br>' .
+//                  "Кол-во: " . $cartItem->getQuantity() . '<br><br>';
+// }
+
+// echo "Общая стоимость товара" . ' ' . $cartProduct->getTotalCart();
 
 
 
