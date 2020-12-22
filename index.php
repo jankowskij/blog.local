@@ -7,6 +7,192 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+// interface iUser
+// {
+//     public function solaryPyment();
+// }
+
+
+// class Worker implements iUser 
+// {
+//     private $name;
+//     private $solary;
+//     private $timeWork;
+
+//     public function __construct($name, $solary, $timeWork) {
+//         $this->name = $name;
+//         $this->solary = $solary;
+//         $this->timeWork = $timeWork;
+//     }
+
+//     public function solaryPyment() {
+//        return  $this->getSolary() * $this->getTimeWork();
+//     }
+
+//     public function getName() {
+//         return $this->name;
+//     }
+
+//     public function getSolary() {
+//         return $this->solary;
+//     }
+
+//     public function getTimeWork() {
+//         return $this->timeWork;
+//     }
+
+//     public function setName($name) {
+//         $this->name = $name;
+//     }
+
+//     public function setSolary($solary) {
+//         $this->solary = $solary;
+//     }
+
+//     public function setTimeWork($timeWork) {
+//         $this->timeWork = $timeWork;
+//     }
+
+// }
+
+// $user = new Worker('John', 20, 240);
+// echo $user->solaryPyment();
+
+
+
+
+// class User
+// {
+//    protected $name;
+//    protected $age;
+//    protected $solary;
+
+//    public function __construct($name, $age, $solary) {
+//        $this->name = $name;
+//        $this->age = $age;
+//        $this->solary = $solary;
+//    }
+
+//    public function getName() {
+//        return $this->name;
+//    }
+
+//    public function setName($name) {
+//        $this->name = $name;
+//    }
+
+//    public function getAge() {
+//     return $this->age;
+// }
+
+//    public function setAge($age) {
+//     $this->age = $age;
+//    }
+
+//     public function getSolary() {
+//         return $this->solary;
+//     }
+
+//     public function setSolary($solary) {
+//         $this->solary = $solary;
+//     }
+// }
+
+
+// class Database 
+// {
+//     private $users = [];
+
+//     public function add($object) {
+//         $this->users[] = $object;
+//         return $this;
+//     }
+
+//     public function remove($object) {
+//         foreach ($this->users as $key=>$value) {
+//             if ($value->getName() == $object) {
+//                 unset($this->users[$key]);
+//             }
+//         }
+//     }
+
+//     public function calcMiddleSolary() {
+//         foreach ($this->users as $user) {
+//             $totalSolary += $user->getsolary();
+//         }
+//         $totalMiddleSolary = $totalSolary / count($this->users);
+//         return $totalMiddleSolary;
+//     }
+
+//     public function getUsers() {
+//         return $this->users;
+//     }
+// }
+
+
+// $user_1 = new User('John', 35, 800);
+// $user_2 = new User('Rebekka', 27, 1600);
+
+// $base = new Database;
+// $base->add($user_1)->add($user_2);
+// echo '<pre>';
+// print_r($base->getUsers());
+// echo '<pre>';
+// echo $base->calcMiddleSolary();
+
+
+// class User 
+// {
+//     private static $countUser = 0;
+//     public $userName;
+
+//     public function __construct($name) {
+//         $this->name = $name;
+//         $this->setCountUser();
+//     }
+
+//     public function getCountUser() {
+//         return self::$countUser;
+//     }
+
+//     private function setCountUser() {
+//         self::$countUser++;
+//     }
+// }
+
+// $user01 = new User('John');
+// echo $user01->getCountUser() . '<br>';
+// $user02 = new User('Rassel');
+// echo $user01->getCountUser() . '<br>';
+
+
+
+// class Num
+// {
+//     public static $num = 1;
+//     public static $left = 30;
+
+//     public static function getNum() {
+//         return self::$left;
+//     }
+
+// }
+
+
+// echo Num::getNum();
+
 // class Products
 // {
 //     private $name;
