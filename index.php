@@ -5,6 +5,161 @@
 
 
 
+// trait Helper 
+// {
+//     private $name;
+//     private $age;
+//     private $population;
+
+//     public function getName() {
+//         return $this->name;
+//     }
+
+//     public function setName($name) {
+//         $this->name = $name;
+//     }
+
+//     public function getAge() {
+//         return $this->age;
+//     }
+
+//     public function setAge($age) {
+//         $this->age = $age;
+//     }
+
+//     public function getPopulation() {
+//         return $this->population;
+//     }
+
+//     public function setPopulation($population) {
+//         $this->population = $population;
+//     }
+// }
+
+// class Country
+// {
+//     use Helper;
+
+//     public function __construct($name, $age, $population) {
+//         $this->name = $name;
+//         $this->age = $age;
+//         $this->population = $population;
+//     }
+
+// }
+
+// $country = new Country('Belarus', 1200, 1000000);
+// echo $country->getNAme() . ' ' . '- это страна, история которой насчитывает ' . $country->getAge() . ' ' . 
+//      'лет и имеет около ' . $country->getPopulation() . ' ' . 'человек своего населения';
+
+
+
+
+
+
+
+// interface iFigure3d
+// {
+//     public function __construct($a);
+//     public function getVolume();
+//     public function getSquare();
+// }
+
+// interface iQuadrate 
+// {
+//     public function __construct($a);
+//     public function getSquare();
+//     public function getPerimeter();
+// }
+
+// interface iRectangle 
+// {
+//     public function __construct($a, $b);
+//     public function getSquare();
+//     public function getPerimeter();
+// }
+
+// class Cube implements iFigure3d
+// {
+//     public $length;
+
+//     public function __construct($a) {
+//         $this->length = $a;
+//     }
+
+//     public function getVolume() {
+//         return $this->length * $this->length * $this->length;
+//     }
+
+//     public function getSquare() {
+//         return ($this->length * $this->length) * 6;
+//     }
+// }
+
+// class Quadrate implements iQuadrate
+// {
+//     public $length;
+
+//     public function __construct($a) {
+//         $this->length = $a;
+//     }
+
+//     public function getPerimeter() {
+//         return $this->length * 4;
+//     }
+
+//     public function getSquare() {
+//         return $this->length * $this->length;
+//     }
+// }
+
+// class Rectangle implements iRectangle
+// {
+//     public $length;
+//     public $width;
+
+//     public function __construct($a, $b) {
+//         $this->length = $a;
+//         $this->width = $b;
+//     }
+
+//     public function getPerimeter() {
+//         return ($this->length + $this->width) * 2;
+//     }
+
+//     public function getSquare() {
+//         return $this->length * $this->width;
+//     }
+// }
+
+
+// class FigureCollection 
+// {
+//     public $figureArray = [];
+//     private static $countFigure = 0;
+
+//     public static function getCountFigure() {
+//         return self::$countFigure;
+//     }
+
+//     public function add($object) {
+//         $this->figureArray[] = $object;
+//         self::$countFigure++;
+//         return $this;
+//     }
+// }
+
+
+// $unknownFigure = new FigureCollection;
+// $unknownFigure->add( new Quadrate(5))->add( new Rectangle(5,10))->add( new Cube(5))
+//               ->add( new Quadrate(10))->add( new Rectangle(5,10))->add( new Cube(7));
+// foreach($unknownFigure->figureArray as $value) {
+//     if ($value instanceof iFigure3d) {
+//         $total += $value->getSquare();
+//     }
+// }
+
+// echo $total;
 
 
 
@@ -13,8 +168,40 @@
 
 
 
+// interface iUser 
+// {
+//     public function getName();
+//     public function setName($name);
+//     public function getAge();
+//     public function setAge($age);
+// }
 
 
+// class User implements iUser 
+// {
+//     private $name;
+//     private $age;
+
+//     public function getName() {
+//         return $this->name;
+//     }
+
+//     public function setName($name) {
+//         $this->name = $name;
+//     }
+
+//     public function getAge() {
+//         return $this->age;
+//     }
+
+//     public function setAge($age) {
+//         $this->age = $age;
+//     }
+// }
+
+// $user = new User;
+// $user->setName('John');
+// echo $user->getName();
 
 
 
