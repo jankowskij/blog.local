@@ -2,14 +2,26 @@
 
 	class Date
 	{
-		public function __construct($date = null)
+        public $thisDate;
+
+		public function __construct($date=null)
 		{
-			// если дата не передана - пусть берется текущая
+            // если дата не передана - пусть берется текущая
+            if ($date) {
+                $this->thisDate = $date;
+            }
+            else {
+                $this->thisDate = date("Y-m-d");
+            }
 		}
 		
 		public function getDay()
 		{
-			// возвращает день
+            // возвращает день
+            $arrayDay = explode('-', $this->thisDate);
+            $day = $arrayDay[2];
+            return $day;
+            
 		}
 		
 		public function getMonth($lang = null)
@@ -18,16 +30,65 @@
 			
 			// переменная $lang может принимать значение ru или en
 			// если эта не пуста - пусть месяц будет словом на заданном языке
+
+			$arrayMonth = [
+			'en' => [
+                1 => 'January',
+                2 => 'February',
+                3 => 'March',
+				4 => 'April',
+				5 => 'May',
+				6 => 'Juny',
+				7 => 'July',
+				8 => 'August',
+				9 => 'September',
+				10 => 'October',
+				11 => 'November',
+				12 => 'December'],
+			'ru'  => [
+				1 => 'Январь',
+                2 => 'Февраль',
+                3 => 'Март',
+				4 => 'Апрель',
+				5 => 'Май',
+				6 => 'Июнь',
+				7 => 'Июль',
+				8 => 'Август',
+				9 => 'Сентябрь',
+				10 => 'Октябрь',
+				11 => 'Ноябрь',
+				12 => 'Декабрь']
+			];
+			$arrayDay = explode('-', $this->thisDate);
+            $month = $arrayDay[1];
+
+			if ($lang == 'ru') {
+				return $arrayMonth['ru'][$month];
+			}
+			elseif ($lang == 'en') {
+				return $arrayMonth['en'][$month];
+			}
+			else {
+				return $arrayDay[1];
+			}
+
+
 		}
 		
 		public function getYear()
 		{
 			// возвращает год
+			$arrayDay = explode('-', $this->thisDate);
+            $year = $arrayDay[1];
+            return $year;
 		}
 		
 		public function getWeekDay($lang = null)
 		{
-			// возвращает день недели
+
+			$arrayDay = explode('-', $this->thisDate);
+			$today = date('w',strtotime($this->thisDate));
+			return $today;		// возвращает день недели
 			
 			// переменная $lang может принимать значение ru или en
 			// если эта не пуста - пусть месяц будет словом на заданном языке
@@ -75,7 +136,15 @@
 		}
 	}
 
+	$date = new Date('1992-09-01');
 
+	echo '<pre>';
+    echo $date->getWeekDay();
+	echo '<pre><br>';
+	
+
+	
+	
 
 // class Test
 // {
@@ -120,27 +189,27 @@
 
 
 
-trait Helper 
-{
-    private $name;
-    private $age;
-    private $population;
+// trait Helper 
+// {
+//     private $name;
+//     private $age;
+//     private $population;
 
-    public function getName() {
-        return $this->name;
-    }
+//     public function getName() {
+//         return $this->name;
+//     }
 
-    public function setName($name) {
-        $this->name = $name;
-    }
+//     public function setName($name) {
+//         $this->name = $name;
+//     }
 
-    public function getAge() {
-        return $this->age;
-    }
+//     public function getAge() {
+//         return $this->age;
+//     }
 
-    public function setAge($age) {
-        $this->age = $age;
-    }
+//     public function setAge($age) {
+//         $this->age = $age;
+//     }
 
 //     public function getPopulation() {
 //         return $this->population;
@@ -1137,3 +1206,5 @@ trait Helper
 //     echo $massive_unique[$i] . " " . gettype($massive_unique[$i]) . "<br>";
 // }
 //  echo "Общее кол-во дат - " . $count;
+
+?>
