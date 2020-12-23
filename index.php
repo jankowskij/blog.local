@@ -1,6 +1,5 @@
 <?php
 
-
 	class Date
 	{
 		public function __construct($date = null)
@@ -75,7 +74,6 @@
 			// выведет дату в формате 'год-месяц-день'
 		}
 	}
-?>
 
 
 
