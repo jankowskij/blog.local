@@ -1,6 +1,123 @@
 <?php
 
 
+	class Date
+	{
+		public function __construct($date = null)
+		{
+			// если дата не передана - пусть берется текущая
+		}
+		
+		public function getDay()
+		{
+			// возвращает день
+		}
+		
+		public function getMonth($lang = null)
+		{
+			// возвращает месяц
+			
+			// переменная $lang может принимать значение ru или en
+			// если эта не пуста - пусть месяц будет словом на заданном языке
+		}
+		
+		public function getYear()
+		{
+			// возвращает год
+		}
+		
+		public function getWeekDay($lang = null)
+		{
+			// возвращает день недели
+			
+			// переменная $lang может принимать значение ru или en
+			// если эта не пуста - пусть месяц будет словом на заданном языке
+		}
+		
+		public function addDay($value)
+		{
+			// добавляет значение $value к дню
+		}
+		
+		public function subDay($value)
+		{
+			// отнимает значение $value от дня
+		}
+		
+		public function addMonth($value)
+		{
+			// добавляет значение $value к месяцу
+		}
+		
+		public function subMonth($value)
+		{
+			// отнимает значение $value от месяца
+		}
+		
+		public function addYear($value)
+		{
+			// добавляет значение $value к году
+		}
+		
+		public function subYear($value)
+		{
+			// отнимает значение $value от года
+		}
+		
+		public function format($format)
+		{
+			// выведет дату в указанном формате
+			// формат пусть будет такой же, как в функции date
+		}
+		
+		public function __toString()
+		{
+			// выведет дату в формате 'год-месяц-день'
+		}
+	}
+?>
+
+
+
+// class Test
+// {
+//     public $a = 1;
+//     private $b = 2;
+
+//     public function __get($name)
+//     {
+//         return "Попытка взлома! Вызывают несуществующий или приватный метод " . $name;
+//     }
+// }
+
+// $test = new Test;
+
+// echo $test->hacking;
+
+
+// class Objected {
+   
+// }
+
+// class Arr
+// {
+//     public $numbers = [];
+
+//     public function add($object) {
+//         $this->numbers[] = $object;
+//         return $this;
+//     }
+    
+//     public function __toString()
+//     {
+//         return (string) count($this->numbers);
+//     }
+
+// }
+
+// $arr = new Arr;
+
+// echo $arr->add( new Objected)->add(new Objected)->add( new Objected);
 
 
 
@@ -1022,5 +1139,3 @@ trait Helper
 //     echo $massive_unique[$i] . " " . gettype($massive_unique[$i]) . "<br>";
 // }
 //  echo "Общее кол-во дат - " . $count;
- 
-
