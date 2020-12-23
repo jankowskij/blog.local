@@ -2,34 +2,32 @@
 
 	class Date
 	{
-        public $thisDate;
+		public $day;
+		public $month;
+		public $year;
 
 		public function __construct($date=null)
 		{
             // если дата не передана - пусть берется текущая
-            if ($date) {
-                $this->thisDate = $date;
-            }
-            else {
-                $this->thisDate = date("Y-m-d");
-            }
+            if (!$date) {
+				$date = date("Y-m-d");
+			}
+
+			$dateArray = explode('-', $date);
+
+			$this->year = $dateArray[0];
+			$this->month = $dateArray[1];
+			$this->day = $dateArray[2];
 		}
 		
 		public function getDay()
 		{
-            // возвращает день
-            $arrayDay = explode('-', $this->thisDate);
-            $day = $arrayDay[2];
-            return $day;
+            return $this->day;
             
 		}
 		
 		public function getMonth($lang = null)
 		{
-			// возвращает месяц
-			
-			// переменная $lang может принимать значение ru или en
-			// если эта не пуста - пусть месяц будет словом на заданном языке
 
 			$arrayMonth = [
 			'en' => [
@@ -59,17 +57,15 @@
 				11 => 'Ноябрь',
 				12 => 'Декабрь']
 			];
-			$arrayDay = explode('-', $this->thisDate);
-            $month = $arrayDay[1];
 
 			if ($lang == 'ru') {
-				return $arrayMonth['ru'][$month];
+				return $arrayMonth['ru'][trim($this->month, "0")];
 			}
 			elseif ($lang == 'en') {
-				return $arrayMonth['en'][$month];
+				return $arrayMonth['en'][trim($this->month, "0")];
 			}
 			else {
-				return $arrayDay[1];
+				return $this->month;
 			}
 
 
@@ -77,51 +73,85 @@
 		
 		public function getYear()
 		{
-			// возвращает год
-			$arrayDay = explode('-', $this->thisDate);
-            $year = $arrayDay[1];
-            return $year;
+			return $this->year;
 		}
 		
 		public function getWeekDay($lang = null)
 		{
+			$arrayWeekDay = [
+				'ru' => [
+					1 => 'Понедельник',
+					2 => 'Вторник',
+					3 => 'Среда',
+					4 => 'Четверг',
+					5 => 'Пятница',
+					6 => 'Суббота'
+				],
 
-			$arrayDay = explode('-', $this->thisDate);
-			$today = date('w',strtotime($this->thisDate));
-			return $today;		// возвращает день недели
+				'en' => [
+					1 => 'Monday',
+					2 => 'Tuesday',
+					3 => 'Wednesday',
+					4 => 'Thursday',
+					5 => 'Friday',
+					6 => 'Saturday'
+				]
+			];
+
+            $date = $this->year.'-'.$this->month.'-'.$this->day;
+			$weekDay = date('w',strtotime($date));
+			if ($lang == 'ru') {
+				return $arrayWeekDay['ru'][$weekDay];
+			}
+			elseif ($lang == 'en') {
+				return $arrayWeekDay['en'][$weekDay];
+			}
+			else {
+				return $weekDay;
+			}
 			
-			// переменная $lang может принимать значение ru или en
-			// если эта не пуста - пусть месяц будет словом на заданном языке
 		}
 		
 		public function addDay($value)
 		{
 			// добавляет значение $value к дню
+			$this->day += $value;
+			return $this;
 		}
 		
 		public function subDay($value)
 		{
 			// отнимает значение $value от дня
+			$this->day -= $value;
+			return $this;
 		}
 		
 		public function addMonth($value)
 		{
 			// добавляет значение $value к месяцу
+			$this->month += $value;
+			return $this;
 		}
 		
 		public function subMonth($value)
 		{
 			// отнимает значение $value от месяца
+			$this->month -= $value;
+			return $this;
 		}
 		
 		public function addYear($value)
 		{
 			// добавляет значение $value к году
+			$this->year += $value;
+			return $this;
 		}
 		
 		public function subYear($value)
 		{
 			// отнимает значение $value от года
+			$this->year -= $value;
+			return $this;
 		}
 		
 		public function format($format)
@@ -130,17 +160,22 @@
 			// формат пусть будет такой же, как в функции date
 		}
 		
-		public function __toString()
-		{
-			// выведет дату в формате 'год-месяц-день'
-		}
+				public function __toString()
+				{
+					// выведет дату в формате 'год-месяц-день'
+					return $this->year . ' ' . $this->getMonth() . " " . $this->getDay() . "<br>";
+				}
 	}
 
-	$date = new Date('1992-09-01');
-
-	echo '<pre>';
-    echo $date->getWeekDay();
-	echo '<pre><br>';
+	$date = new Date('2025-12-31');
+	
+	echo $date->getYear();  // выведет '2025'
+	echo $date->getMonth(); // выведет '12'
+	echo $date->getDay();   // выведет '31'
+	
+	echo $date->getWeekDay();     // выведет '3'
+	echo $date->getWeekDay('ru'); // выведет 'среда'
+	echo $date->getWeekDay('en'); // выведет 'wednesday'
 	
 
 	
