@@ -3,19 +3,40 @@
 
 	class Date
 	{
-		public function __construct($date = null)
+        public $thisDate;
+
+		public function __construct($date=null)
 		{
-			// если дата не передана - пусть берется текущая
+            // если дата не передана - пусть берется текущая
+            if ($date) {
+                $this->thisDate = $date;
+            }
+            else {
+                $this->thisDate = date("Y-m-d");
+            }
 		}
 		
 		public function getDay()
 		{
-			// возвращает день
+            // возвращает день
+            $arrayDay = explode('-', $this->thisDate);
+            $day = $arrayDay[2];
+            return $day;
+            
 		}
 		
 		public function getMonth($lang = null)
 		{
-			// возвращает месяц
+            $arratyMonth = [
+                1 => 'January',
+                2 => 'February',
+                3 => 'March',
+                4 => 'April'
+            ]
+            // возвращает месяц
+            $arrayDay = explode('-', $this->thisDate);
+            $month = $arrayDay[1];
+            return $month;
 			
 			// переменная $lang может принимать значение ru или en
 			// если эта не пуста - пусть месяц будет словом на заданном языке
@@ -75,7 +96,12 @@
 			// выведет дату в формате 'год-месяц-день'
 		}
 	}
-?>
+
+
+    $date = new Date();
+    echo '<pr>';
+    print_r($date->getMonth()); 
+    echo '<pr>';
 
 
 
