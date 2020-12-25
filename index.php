@@ -2,182 +2,242 @@
 
 
 
-	// class Date
-	// {
-	// 	public $day;
-	// 	public $month;
-	// 	public $year;
 
-	// 	public function __construct($date=null)
-	// 	{
-    //         // если дата не передана - пусть берется текущая
-    //         if (!$date) {
-	// 			$date = date("Y-m-d");
-	// 		}
 
-	// 		$dateArray = explode('-', $date);
 
-	// 		$this->year = $dateArray[0];
-	// 		$this->month = $dateArray[1];
-	// 		$this->day = $dateArray[2];
-	// 	}
+// 	class Date
+// 	{
+// 		public $day;
+// 		public $month;
+// 		public $year;
+
+// 		public function __construct($date=null)
+// 		{
+//             // если дата не передана - пусть берется текущая
+//             if (!$date) {
+// 				$date = date("Y-m-d");
+// 			}
+
+// 			$dateArray = explode('-', $date);
+
+// 			$this->year = $dateArray[0];
+// 			$this->month = $dateArray[1];
+// 			$this->day = $dateArray[2];
+// 		}
 		
-	// 	public function getDay()
-	// 	{
-    //         return $this->day;
+// 		public function getDay()
+// 		{
+//             return $this->day;
             
-	// 	}
+// 		}
 		
-	// 	public function getMonth($lang = null)
-	// 	{
+// 		public function getMonth($lang = null)
+// 		{
 
-	// 		$arrayMonth = [
-	// 		'en' => [
-    //             1 => 'January',
-    //             2 => 'February',
-    //             3 => 'March',
-	// 			4 => 'April',
-	// 			5 => 'May',
-	// 			6 => 'Juny',
-	// 			7 => 'July',
-	// 			8 => 'August',
-	// 			9 => 'September',
-	// 			10 => 'October',
-	// 			11 => 'November',
-	// 			12 => 'December'],
-	// 		'ru'  => [
-	// 			1 => 'Январь',
-    //             2 => 'Февраль',
-    //             3 => 'Март',
-	// 			4 => 'Апрель',
-	// 			5 => 'Май',
-	// 			6 => 'Июнь',
-	// 			7 => 'Июль',
-	// 			8 => 'Август',
-	// 			9 => 'Сентябрь',
-	// 			10 => 'Октябрь',
-	// 			11 => 'Ноябрь',
-	// 			12 => 'Декабрь']
-	// 		];
+// 			$arrayMonth = [
+// 			'en' => [
+//                 1 => 'January',
+//                 2 => 'February',
+//                 3 => 'March',
+// 				4 => 'April',
+// 				5 => 'May',
+// 				6 => 'Juny',
+// 				7 => 'July',
+// 				8 => 'August',
+// 				9 => 'September',
+// 				10 => 'October',
+// 				11 => 'November',
+// 				12 => 'December'],
+// 			'ru'  => [
+// 				1 => 'Январь',
+//                 2 => 'Февраль',
+//                 3 => 'Март',
+// 				4 => 'Апрель',
+// 				5 => 'Май',
+// 				6 => 'Июнь',
+// 				7 => 'Июль',
+// 				8 => 'Август',
+// 				9 => 'Сентябрь',
+// 				10 => 'Октябрь',
+// 				11 => 'Ноябрь',
+// 				12 => 'Декабрь']
+// 			];
 
-	// 		if ($lang == 'ru') {
-	// 			return $arrayMonth['ru'][trim($this->month, "0")];
-	// 		}
-	// 		elseif ($lang == 'en') {
-	// 			return $arrayMonth['en'][trim($this->month, "0")];
-	// 		}
-	// 		else {
-	// 			return $this->month;
-	// 		}
+// 			if ($lang == 'ru') {
+// 				return $arrayMonth['ru'][trim($this->month, "0")];
+// 			}
+// 			elseif ($lang == 'en') {
+// 				return $arrayMonth['en'][trim($this->month, "0")];
+// 			}
+// 			else {
+// 				return $this->month;
+// 			}
 
 
-	// 	}
+// 		}
 		
-	// 	public function getYear()
-	// 	{
-	// 		return $this->year;
-	// 	}
+// 		public function getYear()
+// 		{
+// 			return $this->year;
+// 		}
 		
-	// 	public function getWeekDay($lang = null)
-	// 	{
-	// 		$arrayWeekDay = [
-	// 			'ru' => [
-	// 				1 => 'Понедельник',
-	// 				2 => 'Вторник',
-	// 				3 => 'Среда',
-	// 				4 => 'Четверг',
-	// 				5 => 'Пятница',
-	// 				6 => 'Суббота'
-	// 			],
+// 		public function getWeekDay($lang = null)
+// 		{
+// 			$arrayWeekDay = [
+// 				'ru' => [
+// 					1 => 'Понедельник',
+// 					2 => 'Вторник',
+// 					3 => 'Среда',
+// 					4 => 'Четверг',
+// 					5 => 'Пятница',
+// 					6 => 'Суббота'
+// 				],
 
-	// 			'en' => [
-	// 				1 => 'Monday',
-	// 				2 => 'Tuesday',
-	// 				3 => 'Wednesday',
-	// 				4 => 'Thursday',
-	// 				5 => 'Friday',
-	// 				6 => 'Saturday'
-	// 			]
-	// 		];
+// 				'en' => [
+// 					1 => 'Monday',
+// 					2 => 'Tuesday',
+// 					3 => 'Wednesday',
+// 					4 => 'Thursday',
+// 					5 => 'Friday',
+// 					6 => 'Saturday'
+// 				]
+// 			];
 
-    //         $date = $this->year.'-'.$this->month.'-'.$this->day;
-	// 		$weekDay = date('w',strtotime($date));
-	// 		if ($lang == 'ru') {
-	// 			return $arrayWeekDay['ru'][$weekDay];
-	// 		}
-	// 		elseif ($lang == 'en') {
-	// 			return $arrayWeekDay['en'][$weekDay];
-	// 		}
-	// 		else {
-	// 			return $weekDay;
-	// 		}
+//             $date = $this->year.'-'.$this->month.'-'.$this->day;
+// 			$weekDay = date('w',strtotime($date));
+// 			if ($lang == 'ru') {
+// 				return $arrayWeekDay['ru'][$weekDay];
+// 			}
+// 			elseif ($lang == 'en') {
+// 				return $arrayWeekDay['en'][$weekDay];
+// 			}
+// 			else {
+// 				return $weekDay;
+// 			}
 			
-	// 	}
+// 		}
 		
-	// 	public function addDay($value)
-	// 	{
-	// 		// добавляет значение $value к дню
-	// 		$this->day += $value;
-	// 		return $this;
-	// 	}
+// 		public function addDay($value)
+// 		{
+// 			// добавляет значение $value к дню
+// 			$this->day += $value;
+// 			return $this;
+// 		}
 		
-	// 	public function subDay($value)
-	// 	{
-	// 		// отнимает значение $value от дня
-	// 		$this->day -= $value;
-	// 		return $this;
-	// 	}
+// 		public function subDay($value)
+// 		{
+// 			// отнимает значение $value от дня
+// 			$this->day -= $value;
+// 			return $this;
+// 		}
 		
-	// 	public function addMonth($value)
-	// 	{
-	// 		// добавляет значение $value к месяцу
-	// 		$this->month += $value;
-	// 		return $this;
-	// 	}
+// 		public function addMonth($value)
+// 		{
+// 			// добавляет значение $value к месяцу
+// 			$this->month += $value;
+// 			return $this;
+// 		}
 		
-	// 	public function subMonth($value)
-	// 	{
-	// 		// отнимает значение $value от месяца
-	// 		$this->month -= $value;
-	// 		return $this;
-	// 	}
+// 		public function subMonth($value)
+// 		{
+// 			// отнимает значение $value от месяца
+// 			$this->month -= $value;
+// 			return $this;
+// 		}
 		
-	// 	public function addYear($value)
-	// 	{
-	// 		// добавляет значение $value к году
-	// 		$this->year += $value;
-	// 		return $this;
-	// 	}
+// 		public function addYear($value)
+// 		{
+// 			// добавляет значение $value к году
+// 			$this->year += $value;
+// 			return $this;
+// 		}
 		
-	// 	public function subYear($value)
-	// 	{
-	// 		// отнимает значение $value от года
-	// 		$this->year -= $value;
-	// 		return $this;
-	// 	}
+// 		public function subYear($value)
+// 		{
+// 			// отнимает значение $value от года
+// 			$this->year -= $value;
+// 			return $this;
+// 		}
 		
-	// 	public function format($format)
-	// 	{
-	// 		// выведет дату в указанном формате
-	// 		// формат пусть будет такой же, как в функции date
-	// 	}
+// 		public function format($format)
+// 		{
+// 			// выведет дату в указанном формате
+// 			// формат пусть будет такой же, как в функции date
+// 		}
 		
-	// 			public function __toString()
-	// 			{
-	// 				// выведет дату в формате 'год-месяц-день'
-	// 				return $this->year . ' ' . $this->getMonth() . " " . $this->getDay() . "<br>";
-	// 			}
-	// }
+// 				public function __toString()
+// 				{
+// 					// выведет дату в формате 'год-месяц-день'
+// 					return $this->year . ' ' . $this->getMonth() . " " . $this->getDay() . "<br>";
+// 				}
+// 	}
 
-	// $date = new Date('2025-12-31');
+// 	class Interval
+// 	{
+// 		public $oneDate;
+// 		public $twoDate;
+// 		public $unixInterval;
+
+// 		public function __construct($date1, $date2)
+// 		{
+// 			$this->oneDate = strtotime("$date1->year-$date1->month-$date1->day");
+// 			$this->twoDate = strtotime("$date2->year-$date2->month-$date2->day");
+// 			$this->unixInterval = $this->oneDate - $this->twoDate;
+
+// 		}
+		
+// 		public function toDays()
+// 		{
+// 			$ret = "";
+
+// 			$days = intval(intval($this->unixInterval) / (3600*24));
+// 			if($days> 0)
+// 			{
+// 				return $ret .= "$days days ";
+// 			}
+// 		}
+		
+// 		public function toMonths()
+// 		{
+// 			$ret = "";
+
+// 			$month = intval(intval($this->unixInterval) / (3600*24*30));
+// 			if($month > 0)
+// 			{
+// 				return $ret .= "$month month ";
+// 			}
+// 		}
+		
+// 		public function toYears()
+// 		{
+// 			$ret = "";
+
+// 			$year = intval(intval($this->unixInterval) / (3600*24*30*12));
+// 			if($year > 0)
+// 			{
+// 				return $ret .= "$year  year";
+// 			}
+// 		}
+		
+		
+// 		public function __toString()
+// 		{
+// 			// выведет результат в виде массива
+// 			// ['years' => '', 'months' => '', 'days' => '']
+// 		}
+// 	}
+
+// 	$date1 = new Date();
+// 	$date2 = new Date('1970-01-01');
+
+// $interval = new Interval($date1, $date2);
+// echo $interval->unixInterval.'<br>';
+// echo $interval->toDays().'<br>';
+// echo $interval->toMonths().'<br>';
+// echo $interval->toYears().'<br>';
+
+
 	
-	// echo $date->getYear();  // выведет '2025'
-	// echo $date->getMonth(); // выведет '12'
-	// echo $date->getDay();   // выведет '31'
-	
-	// echo $date->getWeekDay();     // выведет '3'
-	// echo $date->getWeekDay('ru'); // выведет 'среда'
-	// echo $date->getWeekDay('en'); // выведет 'wednesday'
 	
 
 	
