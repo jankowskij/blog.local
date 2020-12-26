@@ -18,7 +18,7 @@ interface iFile
 	public function appendText($text);  // добавляет текст в конец файла
 	
 	public function copy($copyPath);    // копирует файл
-	// public function delete();           // удаляет файл
+	public function delete();           // удаляет файл
 	// public function rename($newName);   // переименовывает файл
 	// public function replace($newPath);  // перемещает файл
 }
@@ -79,6 +79,15 @@ class File
 		}
 	}
 
+	public function deleteFiles($delFile) {
+		if (!$delFile) {
+			echo "Не удалось скопировать файл!";
+		}
+		else {
+			unlink($delFile);
+		}
+	}
+
 
 }
 
@@ -89,7 +98,7 @@ echo $file->getName().'<br>';
 echo $file->getExt().'<br>';
 echo $file->getSize().'<br>';
 echo $file->getText().'<br>';
-echo $file->copyFiles('file/work.txt').'<br>';
+echo $file->deleteFiles('file/copyrite/work.txt').'<br>';
 echo $file->appendText('Я певец, от меня вам балалайка').'<br>';
 
 
