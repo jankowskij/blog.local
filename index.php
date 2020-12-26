@@ -1,5 +1,113 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
+interface iFile
+{
+	public function __construct($filePath);
+	
+	public function getPath(); // путь к файлу
+	public function getDir();  // папка файла
+	public function getName(); // имя файла
+	public function getExt();  // расширение файла
+	public function getSize(); // размер файла
+	
+	public function getText();          // получает текст файла
+	public function setText($text);     // устанавливает текст файла
+	public function appendText($text);  // добавляет текст в конец файла
+	
+	public function copy($copyPath);    // копирует файл
+	// public function delete();           // удаляет файл
+	// public function rename($newName);   // переименовывает файл
+	// public function replace($newPath);  // перемещает файл
+}
+
+class File 
+{
+	public $filePath;
+	public $attrArr = [];
+
+	public function __construct($path) {
+		$this->filePath = $path;
+		$this->attrArr = pathinfo($this->filePath);
+	}
+
+	public function getPath() {
+		define('ROOT', dirname(__FILE__));
+		return ROOT.'/'.$this->filePath;
+	}
+
+	public function getDir() {
+		return 'Parents folder - ' . $this->attrArr['dirname'];
+	}
+
+	public function getName() {
+		return 'File name - ' . $this->attrArr['filename'];
+	}
+
+	public function getExt() { 
+		return 'File extension - ' . $this->attrArr['extension'];
+	}
+
+	public function getSize() {
+		return 'File size - ' . filesize($this->filePath).' ' . 'Byte';
+	}
+
+    public function getText() {
+		return $textFile = file_get_contents($this->filePath);
+	}
+
+	public function setText($text) {
+		$textNew = $text;
+		$desc = fopen($this->filePath, "w+");
+		fwrite($desc, $text."\r\n");
+		fclose($desc);
+	}
+
+	public function appendText($text) {
+		$textNew = $text."\r\n";
+		$desc = fopen($this->filePath, "a+");
+		fwrite($desc, $textNew);
+		fclose($desc);
+	}
+
+	public function copyFiles($newFile) {
+		$file = 'file/mediaFile.txt';
+		if (!copy($file, $newFile)) {
+			echo "Не удалось скопировать файл!";
+		}
+	}
+
+
+}
+
+$file = new File('file/mediaFile.txt');
+echo $file->getPath().'<br>';
+echo $file->getDir().'<br>';
+echo $file->getName().'<br>';
+echo $file->getExt().'<br>';
+echo $file->getSize().'<br>';
+echo $file->getText().'<br>';
+echo $file->copyFiles('file/work.txt').'<br>';
+echo $file->appendText('Я певец, от меня вам балалайка').'<br>';
+
+
+// $file = new File();
+
+// $desc=fopen($file->filePath, 'w+');
+// $str = 'My name is Wlad!';
+// fwrite($desc, $str);
+// fclose($desc);
+
+// echo '<pre>';
+// print_r($file->filePath);
+// echo '<pre>';
+
+
+
+
+
 
 
 
