@@ -1,13 +1,9 @@
-
-
 <?php
-include_once ROOT.'/components/DB.php';
+
 
 class News
 
 {
-
-
     public static function getNewsItemById($id)
     {
         $dbh = DB::getConnection();
@@ -23,22 +19,17 @@ class News
     {
         $dbh = DB::getConnection();
         $newsList = [];
-        $rezult = $dbh->query('select name, age, city from users');
+        $rezult = $dbh->query('select id, name, age, city from users');
         $i = 0;
         while($row = $rezult->fetch()) {
+            $newsList[$i]['id'] = $row['id'];
             $newsList[$i]['name'] = $row['name'];
             $newsList[$i]['age'] = $row['age'];
             $newsList[$i]['city'] = $row['city'];
-            $i++;
-            
+            $i++; 
         }
+
         return $newsList;
-
-
     }
-
-
-
-
 
 }

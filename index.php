@@ -11,6 +11,7 @@ define('ROOT', dirname(__FILE__));
 include_once (ROOT.'/components/Router.php');
 
 // 3. Установка соединения с БД
+include_once ROOT.'/components/DB.php';
 
 // 4. Вызов Роутер
 $router = new Router;

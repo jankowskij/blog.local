@@ -3,14 +3,13 @@
 include_once ROOT.'/models/News.php';
 
 class NewsController 
+
 {
     public function actionIndex() {
         echo 'Список новостей';
         $newsList = [];
         $newsList = News::getNewsList();
-        echo '<pre>';
-        print_r($newsList);
-        echo '</pre>';
+        require_once(ROOT.'/views/news/index.php');
         return true;
     }
 
