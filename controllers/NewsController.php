@@ -9,7 +9,10 @@ class NewsController
         echo 'Список новостей';
         $newsList = [];
         $newsList = News::getNewsList();
-        require_once(ROOT.'/views/news/index.php');
+        // require_once(ROOT.'/views/news/index.php');
+        echo '<pre>';
+        print_r($newsList);
+        echo '</pre>';
         return true;
     }
 
