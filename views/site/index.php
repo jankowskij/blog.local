@@ -35,7 +35,7 @@
                                         <h2><?php echo $product['price'];?>$</h2>
                                         <p>
                                             <a href="/product/<?php echo $product['id'];?>">
-                                                <?php echo $product['name'];?>
+                                             ID: <?php echo $product['id'];?>   <?php echo $product['name'];?>
                                             </a>
                                         </p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
@@ -143,7 +143,7 @@
                         <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
                             <i class="fa fa-angle-right"></i>
                         </a>
-                        			
+
                     </div>
                 </div>
                 

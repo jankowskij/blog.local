@@ -37,7 +37,7 @@
                                         <h2><?php echo $product['price'];?>$</h2>
                                         <p>
                                             <a href="/product/<?php echo $product['id'];?>">
-                                                <?php echo $product['name'];?>
+                                            ID: <?php echo $product['id'];?>  <?php echo $product['name'];?>
                                             </a>
                                         </p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
