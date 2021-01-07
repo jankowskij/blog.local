@@ -12,8 +12,8 @@
 				$pattern = $this->createPattern($route->path);
 				// Проверяем адрес URI на соответствие регулярке
 				// Если URI подойдет под регулярку, в $params будут параметры
-				if (preg_match($pattern, $uri, $params)) {
-                    // очищаем параметры от элементов с числовыми ключами
+				if (preg_match($pattern, $uri, $params)) {	
+                // очищаем параметры от элементов с числовыми ключами
                     $params = $this->clearParams($params);
                     // Загоняем в объект Track найденные свойста объекта Route
 					return new Track($route->controller, $route->action, $params);
@@ -36,13 +36,9 @@
 		
 		private function clearParams($params) {
 			$result = [];
-			
 			foreach ($params as $key => $param) {
 				if (!is_int($key)) {
-					$result[$key] = $param;
-				}
+					$result[$key] = $param; }
 			}
-			
-			return $result;
-		}
+			return $result; }
 	}
