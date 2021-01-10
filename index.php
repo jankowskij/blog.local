@@ -1,17 +1,16 @@
 <?php
 
-// Front Controller
-
-// 1. Общие настройки
-ini_set('display_errors', 1);
+// Общие настройки
+ini_set('display_errors',1);
 error_reporting(E_ALL);
 
-// 2. Подключение файлов системы
-define('ROOT', dirname(__FILE__));
-include_once (ROOT.'/components/Router.php');
+// Автозагрузка классов
+spl_autoload_register();
 
-// 3. Установка соединения с БД
+// Подключаем файл с роутами
+$routes = require $_SERVER['DOCUMENT_ROOT'] . '/project/config/routes.php';
 
-// 4. Вызов Роутер
-$router = new Router;
-$router->run();
+// Роутинг
+$track = ( new Core\Router ) -> getTrack($routes, $_SERVER['REQUEST_URI']);
+$page  = ( new Core\Dispatcher ) -> getPage($track);
+echo (new View) -> render($page);
