@@ -2,7 +2,7 @@
 
 namespace Project\Controllers;
 
-use \Core\Controller;
+use Core\Controller;
 
 class PageController extends Controller
 {
