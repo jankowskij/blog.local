@@ -1,16 +1,18 @@
 <?php
 
-// Общие настройки
+// Чтение на ошибки
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // Автозагрузка классов
 spl_autoload_register();
 
-// Подключаем файл с роутами
-$routes = require $_SERVER['DOCUMENT_ROOT'] . '/project/config/routes.php';
+// Костанта корня
+define('ROOT', dirname(__FILE__));
 
-// Роутинг
-$track = (new Core\Router)->getTrack($routes, $_SERVER['REQUEST_URI']);
-$page  = (new Core\Dispatcher)->getPage($track);
-echo (new Core\View)->render($page);
+/// Подключение списка маршрутов
+$routesPath = ROOT.'/config/routes.php';
+
+// Запуск роутера, аргумент: список маршрутов
+$router = new \Components\Router($routesPath);
+$router->run();
