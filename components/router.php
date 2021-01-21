@@ -27,14 +27,19 @@ class Router
         
         foreach ($this->routes as $uriPattern => $path) {
             if (preg_match("~$uriPattern~", $uri)) {
-                $segments = explode('/', $path);
+
+                $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
+                $segments = explode('/', $internalRoute);
 
                 $controllerName = ucfirst(array_shift($segments).'Controller');
                 $actionName = 'action' . ucfirst(array_shift($segments));
                 $fullControllerName = "Controllers\\$controllerName";
+                $params = $segments;
 
                 $controllerObject = new $fullControllerName();
-                $controllerObject->$actionName();
+
+                // Вызывает метод $actionName у объекта с параметрами
+                call_user_func_array(array($controllerObject, $actionName), $params);
 
                 if ($controllerObject) {
                     break;

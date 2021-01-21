@@ -6,11 +6,20 @@ class NewsController
 {
     public function actionIndex()
     {
-        echo 'Просмотр списка новостей';
+        $newsList = [];
+        $newsList = \Models\News::getNewsList();
+        echo '<pre>';
+        print_r($newsList);
+        echo '<pre>';
+        return true;
     }
 
-    public function actionList()
+    public function actionList($id)
     {
-        echo 'Просмотр одной новости';
+        $newsItem = \Models\News::getNewsItemById($id);
+        echo '<pre>';
+        print_r($newsItem);
+        echo '<pre>';
+        return true;
     }
 }

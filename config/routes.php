@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'news/id([0-9]+)' => 'news/list',
+    'news/([0-9]+)' => 'news/list/$1/',
     'news' => 'news/index'
 ];
