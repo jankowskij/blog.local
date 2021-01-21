@@ -8,18 +8,14 @@ class NewsController
     {
         $newsList = [];
         $newsList = \Models\News::getNewsList();
-        echo '<pre>';
-        print_r($newsList);
-        echo '<pre>';
+        require_once (ROOT.'/view/news/index.php');
         return true;
     }
 
     public function actionList($id)
     {
         $newsItem = \Models\News::getNewsItemById($id);
-        echo '<pre>';
-        print_r($newsItem);
-        echo '<pre>';
+        require_once (ROOT.'/view/news/post.php');
         return true;
     }
 }
