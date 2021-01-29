@@ -28,7 +28,7 @@
                         <a href="post.html">Sample Post</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="/login">Login/Register</a>
                     </li>
                 </ul>
             </div>
@@ -39,30 +39,39 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('/template/img/post-bg.jpg')">
+    <header class="intro-header" style="background-image: url('/template/img/home-bg.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="post-heading">
-                        <h1><?php echo $newsItem['title']; ?></h1>
-                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
-                        <span class="meta">Posted by <a href="/news/<?php echo $newsItem['id'] ?>"><?php echo $newsItem['autor']; ?></a> <?php echo $newsItem['date']; ?></span>
+                    <div class="site-heading">
+                        <h1>Clean Blog</h1>
+                        <hr class="small">
+                        <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Post Content -->
-    <article>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <?php echo $newsItem['post']; ?>
-                </div>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+
+                <div>ТУТ типо админка</div>
+
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="next">
+                        <a href="#">Older Posts &rarr;</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </article>
+    </div>
 
     <hr>
 
@@ -104,4 +113,3 @@
     </footer>
 
     <?php include_once ROOT.'/view/layouts/scripts.php';?>
-

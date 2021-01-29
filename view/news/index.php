@@ -1,28 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Clean Blog</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="/template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Theme CSS -->
-    <link href="/template/css/clean-blog.min.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="/template/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-</head>
+<?php include_once ROOT.'/view/layouts/include.php';?>
 
 <body>
 
@@ -51,7 +29,7 @@
                         <a href="post.html">Sample Post</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="/login">Login/Register</a>
                     </li>
                 </ul>
             </div>
@@ -147,19 +125,4 @@
         </div>
     </footer>
 
-    <!-- jQuery -->
-    <script src="/template/vendor/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/template/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="/template/js/jqBootstrapValidation.js"></script>
-    <script src="/template/js/contact_me.js"></script>
-
-    <!-- Theme JavaScript -->
-    <script src="/template/js/clean-blog.min.js"></script>
-
-</body>
-
-</html>
+    <?php include_once ROOT.'/view/layouts/scripts.php';?>

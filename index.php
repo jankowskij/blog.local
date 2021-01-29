@@ -9,6 +9,7 @@ spl_autoload_register();
 
 // Костанта корня
 define('ROOT', dirname(__FILE__));
+define('HOME', '/');
 
 /// Подключение списка маршрутов
 $routesPath = ROOT.'/config/routes.php';

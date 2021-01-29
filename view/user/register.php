@@ -1,4 +1,6 @@
 
+
+
 <?php include_once ROOT.'/view/layouts/include.php';?>
 
 <body>
@@ -39,30 +41,75 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('/template/img/post-bg.jpg')">
+    <header class="intro-header" style="background-image: url('/template/img/contact-bg.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="post-heading">
-                        <h1><?php echo $newsItem['title']; ?></h1>
-                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
-                        <span class="meta">Posted by <a href="/news/<?php echo $newsItem['id'] ?>"><?php echo $newsItem['autor']; ?></a> <?php echo $newsItem['date']; ?></span>
+                    <div class="page-heading">
+                        <h1>Contact Me</h1>
+                        <hr class="small">
+                        <span class="subheading">Have questions? I have answers (maybe).</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Post Content -->
-    <article>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <?php echo $newsItem['post']; ?>
-                </div>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                <?php if (isset($rezult)) : ?>
+                <p>Вы успешно зарегистрированы</p>
+                <?php else :?>
+
+                <p>Форма регистрации пользователя.</p>
+
+
+                <?php if (isset($errors) and is_array($errors)) : ?>
+                <ul>
+                <?php foreach ($errors as $error) : ?>
+                <li> <?php echo $error ?> </li>
+                <?php endforeach; ?>
+                </ul>
+                <?php endif; ?>
+
+
+                <form action="" method="POST" name="register">
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Your name</label>
+                            <input type="text" class="form-control" placeholder="Ваше имя" name="name">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Email</label>
+                            <input type="text" class="form-control" placeholder="Ваш email" name="email">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Password</label>
+                            <input type="password" class="form-control" placeholder="Пароль"  name="pass">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <input type="submit" name="send" value="Отправить">
+                        </div>
+                    </div>
+                </form>
+                <?php endif; ?>
             </div>
         </div>
-    </article>
+    </div>
 
     <hr>
 
@@ -103,5 +150,5 @@
         </div>
     </footer>
 
-    <?php include_once ROOT.'/view/layouts/scripts.php';?>
 
+    <?php include_once ROOT.'/view/layouts/scripts.php';?>
