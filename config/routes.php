@@ -2,6 +2,9 @@
 
 return [
 
+    // Роуты статических страниц
+    'about' => 'static/about',
+
     // Роуты админпанели
     'manager' => 'admin/index',
 
@@ -13,5 +16,6 @@ return [
     // Роуты со статьями
     'news/([0-9]+)' => 'news/list/$1',
     'news' => 'news/index',
-    '' => 'news/index'
+
+    '' => 'news/index',
 ];

@@ -11,6 +11,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <?php if(!empty($user)): ?>
+                <div>Вы уже авторизованы, <?php echo $user['name']; ?></div>
+                <?php else: ?>
                 <p>Форма авторизации на сайте</p>
                 <?php if (isset($errors) and is_array($errors)) : ?>
                 <ul>
@@ -42,6 +45,7 @@
                         </div>
                     </div>
                 </form>
+                <?php endif; ?>
             </div>
         </div>
     </div>

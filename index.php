@@ -7,6 +7,8 @@ error_reporting(E_ALL);
 // Автозагрузка классов
 spl_autoload_register();
 
+session_start();
+
 // Костанта корня
 define('ROOT', dirname(__FILE__));
 define('HOME', '/');

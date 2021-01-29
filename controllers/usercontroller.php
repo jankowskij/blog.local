@@ -4,6 +4,7 @@ namespace Controllers;
 
 class UserController 
 {
+    // Метод регистрации пользователя
     public static function actionRegister()
     {
         $name = '';
@@ -39,39 +40,50 @@ class UserController
         require_once ROOT.'/view/user/register.php';
     }
 
-
+    // Метод авторизации пользователя
     public static function actionLogin() {
 
         $email = '';
         $pass = '';
         $errors = false;
 
-        if (isset($_POST['email']) and isset($_POST['pass'])) {
 
-            // Принимаем данные из глобального массива
-            $email = $_POST['email'];
-            $pass = $_POST['pass'];
+        if (\models\User::isGuest()) {
 
-            // Проверяем наличие пользователя в базе
-            $userID = \models\User::checkUser($email, $pass);
+            if (isset($_POST['email']) and isset($_POST['pass'])) {
 
-            // Авторизуемся
-            if ($userID !== false) {
-                \models\User::authUser($userID);
-                header( 'Location: /manager' );
+                // Принимаем данные из глобального массива
+                $email = $_POST['email'];
+                $pass = $_POST['pass'];
+    
+                // Проверяем наличие пользователя в базе
+                $userID = \models\User::checkUser($email, $pass);
+    
+                // Авторизуемся
+                if ($userID !== false) {
+                    \models\User::authUser($userID);
+                    header( 'Location: /manager' );
+                }
+                else {
+                    $errors[] = 'Неверные данные или вы еще не зарегистрированы';
+                }
+    
             }
-            else {
-                $errors[] = 'Неверные данные или вы еще не зарегистрированы';
-            }
-
+            
+        } else {
+            $userID = \models\User::checkLogged();
+            $user = \models\User::getUserById($userID);
         }
 
+        
+        // require_once(ROOT.'/view/user/templogin.php');
         require_once ROOT.'/view/user/login.php';
+        
     
     }
 
+     // Метод выхода из аккаунта
     public static function actionLogout() {
-        session_start();
         unset($_SESSION['user']);
         header( 'Location: /login' );
     }

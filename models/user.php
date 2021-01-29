@@ -5,7 +5,7 @@ namespace Models;
 class User 
 {
 
-    // Метод регистрации пользователя
+    // Метод добавления нового пользователя в базу
     public static function register($name, $email, $pass) {
        
         $db = \config\DB::getConnection();
@@ -61,11 +61,10 @@ class User
         return true;
     }
 
+        // Метод поиска введенной пары логин-пароль в базе
     public static function checkUser($email, $pass) {
-        
         $db = \config\DB::getConnection();
         $sql = 'SELECT * FROM users WHERE email = :email and pass = :pass';
-
         $rezult = $db->prepare($sql);
         $rezult->bindParam(':email', $email, \PDO::PARAM_STR);
         $rezult->bindParam(':pass', $pass, \PDO::PARAM_STR);
@@ -81,17 +80,36 @@ class User
         }
     }
 
+    // Метод авторизации пользователя
     public static function authUser($userID) {
-        session_start();
         $_SESSION['user'] = $userID;
     }
 
+    // Метод проверки авторизован пользователь? Возвращает id пользователя
     public static function checkLogged() {
-        session_start();
         if (isset($_SESSION['user'])) {
             return $_SESSION['user'];
         }
         header('Location: /login');
     }
+
+    // Метод проверки авторизован пользователь? Возвращает true или false
+    public static function isGuest() {
+        if (isset($_SESSION['user'])) {
+            return false;
+        }
+        return true;
+    }
+
+     // Метод получения данных об авторизованном пользователе
+     public static function getUserById($userID) {
+         $db = \config\DB::getConnection();
+         $sql = 'SELECT * FROM users WHERE id = :id';
+         $rezult = $db->prepare($sql);
+         $rezult ->bindParam(':id', $userID, \PDO::PARAM_STR);
+         $rezult->setFetchMode(\PDO::FETCH_ASSOC);
+         $rezult->execute();
+         return $rezult->fetch();
+     }
 
 }
