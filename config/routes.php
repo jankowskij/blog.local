@@ -8,6 +8,7 @@ return [
     // Роуты регистрации
     'register' => 'user/register',
     'login' => 'user/login',
+    'logout' => 'user/logout',
 
     // Роуты со статьями
     'news/([0-9]+)' => 'news/list/$1',

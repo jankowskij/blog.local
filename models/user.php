@@ -79,7 +79,6 @@ class User
         else {
             return false;
         }
-
     }
 
     public static function authUser($userID) {
@@ -87,7 +86,7 @@ class User
         $_SESSION['user'] = $userID;
     }
 
-    public static function checkLogget() {
+    public static function checkLogged() {
         session_start();
         if (isset($_SESSION['user'])) {
             return $_SESSION['user'];

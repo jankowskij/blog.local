@@ -58,7 +58,7 @@ class UserController
             // Авторизуемся
             if ($userID !== false) {
                 \models\User::authUser($userID);
-                header( 'Location: '.HOME );
+                header( 'Location: /manager' );
             }
             else {
                 $errors[] = 'Неверные данные или вы еще не зарегистрированы';
@@ -68,5 +68,11 @@ class UserController
 
         require_once ROOT.'/view/user/login.php';
     
+    }
+
+    public static function actionLogout() {
+        session_start();
+        unset($_SESSION['user']);
+        header( 'Location: /login' );
     }
 }

@@ -5,8 +5,8 @@ namespace Controllers;
 class AdminController
 {
     public function actionIndex() {
-        $userID = $_SESSION['user'];
-        echo $userID;
-        require_once(ROOT.'/manager');
+        $userID = \models\User::checkLogged();
+        require_once(ROOT.'/view/admin/index.php');
+        return true;
     }
 }
