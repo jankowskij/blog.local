@@ -14,6 +14,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div>Привет, <?php echo $user['name']; ?></div>
                 <div>Это твоя админпанель. Она пока не похожа на нее, но все еще впереди! :)</div>
+                <div><a href="/manager/edit" style="color: red;">Редактировать данные</a></div>
             </div>
         </div>
     </div>

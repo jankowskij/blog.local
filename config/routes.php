@@ -6,6 +6,7 @@ return [
     'about' => 'static/about',
 
     // Роуты админпанели
+    'manager/edit' => 'admin/edit',
     'manager' => 'admin/index',
 
     // Роуты регистрации

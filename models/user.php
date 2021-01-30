@@ -112,4 +112,14 @@ class User
          return $rezult->fetch();
      }
 
+     // Метод редактирования данных пользователя
+     public static function edit($userID, $name, $pass) {
+         $db = \config\DB::getConnection();
+         $sql = "UPDATE users SET name = :name, pass = :pass WHERE id = :id";
+         $rezult = $db->prepare($sql);
+         $rezult ->bindParam(':id', $userID, \PDO::PARAM_INT);
+         $rezult ->bindParam(':name', $name, \PDO::PARAM_STR);
+         $rezult ->bindParam(':pass', $pass, \PDO::PARAM_STR);
+         return $rezult->execute();
+     }
 }
