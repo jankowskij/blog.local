@@ -113,13 +113,17 @@ class User
      }
 
      // Метод редактирования данных пользователя
-     public static function edit($userID, $name, $pass) {
+     public static function edit($userID, $name, $pass, $work, $age, $city) {
          $db = \config\DB::getConnection();
-         $sql = "UPDATE users SET name = :name, pass = :pass WHERE id = :id";
+         $sql = "UPDATE users SET name = :name, pass = :pass, work = :work, age = :age, city = :city WHERE id = :id";
          $rezult = $db->prepare($sql);
          $rezult ->bindParam(':id', $userID, \PDO::PARAM_INT);
          $rezult ->bindParam(':name', $name, \PDO::PARAM_STR);
          $rezult ->bindParam(':pass', $pass, \PDO::PARAM_STR);
+         $rezult ->bindParam(':work', $work, \PDO::PARAM_STR);
+         $rezult ->bindParam(':age', $age, \PDO::PARAM_INT);
+         $rezult ->bindParam(':city', $city, \PDO::PARAM_STR);
          return $rezult->execute();
      }
+
 }

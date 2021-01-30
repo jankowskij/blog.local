@@ -14,15 +14,22 @@ class AdminController
     public function actionEdit() {
         $userID = \models\User::checkLogged();
         $user = \models\User::getUserById($userID);
-
+        
         $username = $user['name'];
         $userpass = $user['pass'];
+        $userwork = $user['work'];
+        $userage  = $user['age'];
+        $usercity = $user['city'];
 
         $rezult = false;
 
         if (isset($_POST['submit'])) {
+
             $username = $_POST['name'];
             $userpass = $_POST['pass'];
+            $userwork = $_POST['work'];
+            $userage  = $_POST['age'];
+            $usercity = $_POST['city'];
 
             $errors = false;
 
@@ -35,7 +42,7 @@ class AdminController
             }
 
             if ($errors == false) {
-                $rezult = \models\User::edit($userID, $username, $userpass);
+                $rezult = \models\User::edit($userID, $username, $userpass, $userwork, $userage, $usercity);
             }
 
         }

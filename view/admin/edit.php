@@ -39,6 +39,27 @@
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Work</label>
+                            <input type="text" class="form-control" value="<?php echo $user['work']; ?>" placeholder="Ваша работа"  name="work">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Age</label>
+                            <input type="text" class="form-control" value="<?php echo $user['age']; ?>" placeholder="Ваш возраст"  name="age">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>City</label>
+                            <input type="text" class="form-control" value="<?php echo $user['city']; ?>" placeholder="Ваш город"  name="city">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
                     <br>
                     <div id="success"></div>
                     <div class="row">
