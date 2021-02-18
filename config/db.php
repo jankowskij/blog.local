@@ -6,10 +6,10 @@ class DB
 {
     public static function getConnection() 
     {
-        $host = 'localhost';
-        $dbname = 'db_user_1';
-        $user = 'user_1';
-        $pass = 'PASS!dkflbr4444';
+        $host = 'p558205.mysql.ihc.ru';
+        $dbname = 'p558205_test';
+        $user = 'p558205_test';
+        $pass = 'j9Vg43Zqxz';
         $db = new \PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
         return $db;
     }
