@@ -2,6 +2,9 @@
 
 return [
 
+    // Форма обратной связи
+    'feedback' => 'site/contact',
+
     // Роуты статических страниц
     'about' => 'static/about',
 

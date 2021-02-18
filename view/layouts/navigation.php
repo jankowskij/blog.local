@@ -12,14 +12,14 @@
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="post.html">Sample Post</a></li>
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="/about">Обо мне</a></li>
+                    <li><a href="/feedback">Контакты</a></li>
                     <?php if(\models\User::isGuest()): ?>
-                    <li><a href="/login">Login</a></li>
+                    <li><a href="/login">Войти</a></li>
                     <?php else: ?>
-                    <li><a href="/manager">Panel</a></li>
-                    <li><a href="/logout">Logout</a></li>
+                    <li><a href="/manager">Панель</a></li>
+                    <li><a href="/logout">Выйти</a></li>
                     <?php endif; ?>
 
                 </ul>
